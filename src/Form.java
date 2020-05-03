@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Form {
     public Form() {
-        JFrame MainForm = new JFrame("Форма");
+        JFrame MainForm = new JFrame("Test form");
         MainForm.setSize(500, 400);
 
         MainForm.setLayout(new GridBagLayout());
@@ -45,14 +45,8 @@ public class Form {
                 GridBagConstraints.HORIZONTAL,new Insets(5,5,5,5),0,0));
 
 
-        buttonSw.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String oldValue = field1.getText();
-                field1.setText(field2.getText());
-                field2.setText(oldValue);
-            }
-        });
+        buttonSw.addActionListener(new ButtonAction(field1,field2));
+        buttonCancel.addActionListener(new ButtonAction());
 
 
         MainForm.setLocationRelativeTo(MainForm);
